@@ -1,0 +1,16 @@
+<resources>
+    <string name="button_pok">POKEDEX</string>
+    <string name="button_fav">FAVOURITES</string>
+    <string name="logo">Pokemon Logo</string>
+    <string name="title">Pokédex</string>
+    <string-array name="testdata">
+        <item>Pikachu</item>
+        <item>Charizard</item>
+        <item>Blastoise</item>
+        <item>Charmander</item>
+        <item>MewTwo</item>
+        <item>Pichu</item>
+        <item>Eevee</item>
+        <item>Persian</item>
+    </string-array>
+</resources>

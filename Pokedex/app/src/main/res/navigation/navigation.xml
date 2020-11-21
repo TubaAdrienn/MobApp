@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/title_fragment">
+
+    <fragment
+        android:id="@+id/pokedex_fragment"
+        android:name="com.example.pokedex.pokedex.PokedexFragment"
+        android:label="Pokedex"
+        tools:layout="@layout/pokedex_fragment">
+        <action
+            android:id="@+id/action_pokedex_fragment_to_pokedex_detail"
+            app:destination="@id/pokedex_detail" />
+        <action
+            android:id="@+id/action_pokedex_fragment_to_title_fragment"
+            app:destination="@id/title_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/pokedex_detail"
+        android:name="com.example.pokedex.pokemondetail.PokemonDetailFragment"
+        android:label="Pokedex"
+        tools:layout="@layout/detail_fragment">
+        <argument
+            android:name="pokeKey"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_pokedex_detail_to_pokedex_fragment"
+            app:destination="@id/pokedex_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/title_fragment"
+        android:name="com.example.pokedex.titlefragment.TitleFragment"
+        android:label="Pokedex"
+        tools:layout="@layout/title_fragment">
+        <action
+            android:id="@+id/action_title_fragment_to_pokedex_fragment"
+            app:destination="@id/pokedex_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
+        <action
+            android:id="@+id/action_title_fragment_to_favourite_fragment"
+            app:destination="@id/favourite_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/favourite_fragment"
+        android:name="com.example.pokedex.favourite.Favourites"
+        android:label="Pokedex"
+        tools:layout="@layout/title_fragment">
+        <action
+            android:id="@+id/action_favourite_fragment_to_pokedex_detail"
+            app:destination="@id/pokedex_detail" />
+    </fragment>
+
+
+</navigation>
