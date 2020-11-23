@@ -52,12 +52,13 @@ class PokedexFragment : Fragment() {
         // give the binding object a reference to it.
         binding.pokedexViewModel = pokedexViewModel
 
-        adapter = PokedexAdapter(PokemonListener { pokeID ->
-            pokedexViewModel.onPokemonClicked(pokeID)
+        val adapter = PokedexAdapter(PokemonListener { pokeid ->
+            pokedexViewModel.onPokemonClicked(pokeid)
         })
+
         binding.pokemonList.adapter = adapter
 
-        pokedexViewModel.navigateToSleepDetail.observe(viewLifecycleOwner, Observer { poke ->
+        pokedexViewModel.navigateToDetail.observe(viewLifecycleOwner, Observer { poke ->
             poke?.let {
                 this.findNavController().navigate(
                     PokedexFragmentDirections.actionPokedexFragmentToPokedexDetail(poke)
@@ -88,6 +89,8 @@ class PokedexFragment : Fragment() {
                 }
         }
         binding.pokemonList.layoutManager = manager
+
+
 
         return binding.root
     }

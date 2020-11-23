@@ -11,11 +11,11 @@ class PokedexViewModel(
 ) : ViewModel() {
 
     private val _navigateToPokemonDetail = MutableLiveData<Long>()
-    val navigateToSleepDetail: LiveData<Long>
+    val navigateToDetail: LiveData<Long>
         get() = _navigateToPokemonDetail
 
-    fun onPokemonClicked(id: Long) {
-        _navigateToPokemonDetail.value = id
+    fun onPokemonClicked(poke: Long) {
+        _navigateToPokemonDetail.value = poke
     }
 
     fun onPokemonDetailNavigated() {
@@ -27,10 +27,30 @@ class PokedexViewModel(
      */
     val database = dataSource
 
-    val charm = Pokemon(1, "Charmander", "It's a Chamander.")
-    val chari = Pokemon(2, "Charizard", "It's a Charizard.")
-    val mewtwo = Pokemon(3, "Mewtwo", "It's a Mewtwo.")
-    val pikachu = Pokemon(4, "Pikachu", "It's a Pikcahu.")
+    val charm = Pokemon(
+        1, "Charmander", "It's a Chamander.",
+        "fire","fast attack", "fast attack",
+        "def", "specAt", "specDef", "much speed"
+    )
+    val chari = Pokemon(
+        2, "Charizard", "It's a Charizard.",
+        "fire","fast attack", "fast attack",
+        "def", "specAt", "specDef", "much speed"
+    )
+    val mewtwo = Pokemon(
+        3,
+        "Mewtwo",
+        "It's a Mewtwo.",
+        "fire","fast attack", "fast attack",
+        "def", "specAt", "specDef", "much speed"
+    )
+    val pikachu = Pokemon(
+        4,
+        "Pikachu",
+        "It's a Pikcahu.",
+        "fire","fast attack", "fast attack",
+        "def", "specAt", "specDef", "much speed"
+    )
 
     private suspend fun insert(poke: Pokemon) {
         database.insert(poke)

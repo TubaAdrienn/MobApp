@@ -5,8 +5,11 @@
 
     <data>
         <variable
+            name="pokemon"
+            type="com.example.pokedex.database.Pokemon" />
+        <variable
             name="detailViewModel"
-            type="com.example.pokedex.pokedex.PokedexViewModel" />
+            type="com.example.pokedex.pokemondetail.PokemonDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,109 +18,190 @@
         android:background="#FFFFFF"
         tools:context=".pokemondetail.PokemonDetailFragment">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="227dp"
-        android:layout_height="223dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/charm" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="PokemonName"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="323dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="24dp"
-        android:text="Type: "
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="323dp"
-        android:layout_height="32dp"
-        android:text="Abilities: "
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="67dp"
-        android:layout_height="37dp"
-        android:text="Stats"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="323dp"
-        android:layout_height="32dp"
-        android:text="Special defense: "
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="323dp"
-            android:layout_height="32dp"
-            android:text="Speed"
-            android:textSize="18sp"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="227dp"
+            android:layout_height="223dp"
+            android:layout_marginTop="72dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/charm" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="323dp"
-        android:layout_height="32dp"
-        android:text="Attack: "
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="323dp"
-        android:layout_height="32dp"
-        android:text="Defense"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="52dp"
+            android:text="Type: "
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="323dp"
-        android:layout_height="32dp"
-        android:text="Special Attack"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        <TextView
+            android:id="@+id/speedtext"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.speed}"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textview6"
+            app:layout_constraintTop_toBottomOf="@+id/specdeftext" />
+
+        <TextView
+            android:id="@+id/attacktext"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.attack}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/abs"
+            app:layout_constraintStart_toEndOf="@+id/abs"
+            app:layout_constraintTop_toTopOf="@+id/abs" />
+
+        <TextView
+            android:id="@+id/typetext"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.type}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/specdeftext"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.specDef}"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textview5"
+            app:layout_constraintTop_toBottomOf="@+id/specatttext" />
+
+        <TextView
+            android:id="@+id/deftext"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.defense}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview2"
+            app:layout_constraintStart_toEndOf="@+id/textview2"
+            app:layout_constraintTop_toBottomOf="@+id/abs" />
+
+        <TextView
+            android:id="@+id/specatttext"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.specAttack}"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/textview4"
+            app:layout_constraintTop_toTopOf="@+id/textview4" />
+
+        <TextView
+            android:id="@+id/textview3"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="36dp"
+            android:text="Ability: "
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/abs"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="20dp"
+            android:text="Attack:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stat2" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="36dp"
+            android:text="Defense:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abs" />
+
+        <TextView
+            android:id="@+id/textview4"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="36dp"
+            android:text="Special attack:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview2" />
+
+        <TextView
+            android:id="@+id/textview5"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="36dp"
+            android:text="Special defense:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview4" />
+
+        <TextView
+            android:id="@+id/textview6"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="36dp"
+            android:text="Speed:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview5" />
+
+        <TextView
+            android:id="@+id/abi"
+            android:layout_width="247dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.ability}"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview3"
+            app:layout_constraintStart_toEndOf="@+id/textview3"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:text="@{pokemon.name}"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/stat2"
+            android:layout_width="104dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="20dp"
+            android:text="Stats "
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview3" />
+
+
+        <Switch
+            android:id="@+id/Like"
+            android:layout_width="74dp"
+            android:layout_height="30dp"
+            android:text="Like"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

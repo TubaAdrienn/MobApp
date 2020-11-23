@@ -33,7 +33,6 @@
             app:destination="@id/pokedex_fragment" />
     </fragment>
 
-
     <fragment
         android:id="@+id/title_fragment"
         android:name="com.example.pokedex.titlefragment.TitleFragment"

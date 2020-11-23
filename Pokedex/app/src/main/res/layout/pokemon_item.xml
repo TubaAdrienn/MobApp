@@ -17,7 +17,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->clickListener.onClick(pokemon)}">
+        android:onClick="@{()->clickListener.onClick(pokemon)}"
+        android:longClickable="true">
 
         <ImageView
             android:id="@+id/quality_image"
