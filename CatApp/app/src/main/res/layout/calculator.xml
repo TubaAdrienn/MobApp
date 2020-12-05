@@ -1,0 +1,119 @@
+<!-- Wrapping the layout into /layout to make it available with data binding. -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="calculatorViewModel"
+            type="com.example.loveapp.calculator.CalculatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".calculator.CalculatorFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name1_layout"
+            android:layout_width="333dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="124dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name1_input"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:hint="Name"
+                android:textSize="30sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name2_layout"
+            android:layout_width="333dp"
+            android:layout_height="75dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name1_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name2_input"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:hint="Name2"
+                android:text=""
+                android:textSize="30sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_calc"
+            android:layout_width="122dp"
+            android:layout_height="30dp"
+            android:background="@color/pink"
+            android:text="CALCULATE"
+            android:textAlignment="center"
+            android:textColor="#F4EFF1"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name2_layout" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="122dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="344dp"
+            android:layout_marginBottom="60dp"
+            android:background="@color/pink"
+            android:text="SAVE TO LOG"
+            android:textAlignment="center"
+            android:textColor="#F4EFF1"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name2_layout" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="275dp"
+            android:layout_height="220dp"
+            android:layout_marginBottom="164dp"
+            android:contentDescription="logo"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/heart" />
+
+        <TextView
+            android:id="@+id/result_text"
+            android:layout_width="91dp"
+            android:layout_height="40dp"
+            android:text="0%"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/result_view"
+            android:layout_width="377dp"
+            android:layout_height="35dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

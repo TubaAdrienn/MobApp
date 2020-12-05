@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/title_fragment">
+
+    <fragment
+        android:id="@+id/title_fragment"
+        android:name="com.example.loveapp.title.TitleFragment"
+        android:label="LoveApp"
+        tools:layout="@layout/title">
+        <action
+            android:id="@+id/action_title_fragment_to_calc_fragment"
+            app:destination="@id/calc_fragment" />
+        <action
+            android:id="@+id/action_title_fragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calc_fragment"
+        android:name="com.example.loveapp.calculator.CalculatorFragment"
+        android:label="LoveApp"
+        tools:layout="@layout/calculator">
+        <action
+            android:id="@+id/action_calc_fragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+        <action
+            android:id="@+id/action_calc_fragment_to_title_fragment"
+            app:destination="@id/title_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="com.example.loveapp.lovelist.LoveListFragment"
+        android:label="Results"
+        tools:layout="@layout/list_fragment">
+        <action
+            android:id="@+id/action_list_fragment_to_detail_fragment"
+            app:destination="@id/detail_fragment" />
+        <action
+            android:id="@+id/action_list_fragment_to_calc_fragment"
+            app:destination="@id/calc_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="com.example.loveapp.detail.DetailFragment"
+        android:label="Result"
+        tools:layout="@layout/detail_layout">
+        <argument
+            android:name="loveId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_detail_fragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+    </fragment>
+</navigation>

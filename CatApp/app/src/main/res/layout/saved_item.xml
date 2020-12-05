@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="love"
+            type="com.example.loveapp.dao.LoveResultSave"/>
+        <variable
+            name="clickListener"
+            type="com.example.loveapp.lovelist.LoveListener"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:longClickable="true"
+        android:onClick="@{()->clickListener.onClick(love)}">
+
+        <ImageView
+            android:id="@+id/image_heart"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resultImage="@{love}"
+            tools:srcCompat="@drawable/heart" />
+
+        <TextView
+            android:id="@+id/percent_string"
+            android:layout_width="64dp"
+            android:layout_height="20dp"
+            android:text="0%"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_heart"
+            app:layout_constraintEnd_toEndOf="@+id/image_heart"
+            app:layout_constraintStart_toStartOf="@+id/image_heart"
+            app:layout_constraintTop_toTopOf="@+id/image_heart"
+            app:resultPerc="@{love}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
